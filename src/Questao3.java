@@ -21,23 +21,26 @@ public class Questao3 {
         for(int j = 0; j < colunas; j++) {
           if(posicao < T){
             cripto[i][j] = noSpace.charAt(posicao);
-            posicao++;
-          }else
-            break;
-        }
-      }
-      for(int i = 0; i < linhas ; i++) { //Laços de repetição para remover o lixo do vetor bidimensional
-        for(int j = 0; j < colunas; j++) {
-          if(!Character.isAlphabetic(cripto[i][j])){
+          }else {
             cripto[i][j] = ' ';
           }
+          posicao++;
         }
       }
+//      for(int i = 0; i < linhas ; i++) { //Laços de repetição para remover o lixo do vetor bidimensional
+//        for(int j = 0; j < colunas; j++) {
+//          if(!Character.isAlphabetic(cripto[i][j])){
+//            cripto[i][j] = ' ';
+//          }
+//        }
+//      }
     }
     
     for(int i = 0; i < linhas; i++) { //Laços de repetição para inserir o texto criptografado
       for(int j = 0; j < colunas; j++) {
-        saida = saida.concat(String.valueOf(cripto[j][i]));
+        if (cripto[j][i] != ' ') {
+          saida = saida.concat(String.valueOf(cripto[j][i]));
+        }
       }
       saida = saida.concat(" ");
     }
